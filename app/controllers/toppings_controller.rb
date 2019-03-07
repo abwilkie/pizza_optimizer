@@ -62,19 +62,17 @@ class ToppingsController < ApplicationController
   end
 
   def unavailable
-    @topping = Topping.find(params[:id])
-    Topping.update(available: false)
+    Topping.find(params[:id]).update(available: false)
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Topping is not available.' }
+      format.html { redirect_to toppings_url, notice: 'Topping has been marked not available.' }
       format.json { head :no_content }
     end
   end
 
   def available
-    @topping = Topping.find(params[:id])
-    Topping.update(available: true)
+    Topping.find(params[:id]).update(available: true)
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Topping is available.' }
+      format.html { redirect_to toppings_url, notice: 'Topping has been marked available.' }
       format.json { head :no_content }
     end
   end

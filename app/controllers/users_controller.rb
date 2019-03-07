@@ -67,8 +67,7 @@ class UsersController < ApplicationController
   end
 
   def inactivate
-    @user = User.find(params[:id])
-    User.update(present: false)
+    User.find(params[:id]).update(present: false)
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User is marked as absent.' }
       format.json { head :no_content }
@@ -76,8 +75,7 @@ class UsersController < ApplicationController
   end
 
   def activate
-    @user = User.find(params[:id])
-    User.update(present: true)
+    User.find(params[:id]).update(present: true)
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User is marked as present.' }
       format.json { head :no_content }

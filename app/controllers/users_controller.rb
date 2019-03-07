@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_path, notice: 'Person was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Person was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   def inactivate
     User.find(params[:id]).update(present: false)
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User is marked as absent.' }
+      format.html { redirect_to users_url, notice: 'Person is marked as absent.' }
       format.json { head :no_content }
     end
   end
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
   def activate
     User.find(params[:id]).update(present: true)
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User is marked as present.' }
+      format.html { redirect_to users_url, notice: 'Person is marked as present.' }
       format.json { head :no_content }
     end
   end

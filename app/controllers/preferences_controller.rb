@@ -24,7 +24,7 @@ class PreferencesController < ApplicationController
   # POST /preferences
   # POST /preferences.json
   def create
-    @preference = Preference.new(preference_params)
+    @preference = Preference.find_or_initialize_by(preference_params)
 
     respond_to do |format|
       if @preference.save
@@ -65,7 +65,8 @@ class PreferencesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_preference
-      user.find(params[:id]).add_topping_preference(params[:topping_id])
+      format.html { redirect_to preferences_url, notice: 'User is ${params[:user_id]}.' }
+#      User.find(params[:user_id]).add_topping_preference(params[:topping_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

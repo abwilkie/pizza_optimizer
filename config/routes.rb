@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   	end
   end
 
+  resources :preferences do
+  	member do
+  		post 'mark_inedible'
+  		post 'mark_edible'
+  		post 'enter_rating'
+  	end
+  end
+
 
   resources :preferences
   root 'users#index'

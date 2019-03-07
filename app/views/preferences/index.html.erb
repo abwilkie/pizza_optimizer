@@ -20,7 +20,6 @@
         <td><%= preference.topping_id %></td>
         <td><%= preference.inedible %></td>
         <td><%= preference.rating %></td>
-        <td><%= link_to 'Show', preference %></td>
         <td><%= link_to 'Edit', edit_preference_path(preference) %></td>
         <td><%= link_to 'Destroy', preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -31,3 +30,8 @@
 <br>
 
 <%= link_to 'New Preference', new_preference_path %>
+<p>
+<%= link_to 'See Toppings', toppings_path %>
+<br>
+<%= link_to 'See Users', users_path %>
+</p>

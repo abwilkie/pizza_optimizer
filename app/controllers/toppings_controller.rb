@@ -70,7 +70,7 @@ class ToppingsController < ApplicationController
     end
   end
 
-  def unavailable
+  def available
     @topping = Topping.find(params[:id])
     Topping.update(available: true)
     respond_to do |format|

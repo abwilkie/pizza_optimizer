@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Toppings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Available</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @toppings.each do |topping| %>
+      <tr>
+        <td><%= topping.name %></td>
+        <td><%= topping.available %></td>
+        <% if topping.available? %>
+          <td><%= button_to 'Set Unavailable', unavailable_topping_path(topping), method: :post %></td> 
+          <% else %>
+          <td><%= button_to 'Set To Available', available_topping_path(topping), method: :post %></td> 
+        <% end %>
+        <td><%= button_to 'Delete', topping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Topping', new_topping_path %>

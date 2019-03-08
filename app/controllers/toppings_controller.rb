@@ -28,7 +28,7 @@ class ToppingsController < ApplicationController
 
     respond_to do |format|
       if @topping.save
-        format.html { redirect_to toppings_path, notice: 'Topping was successfully created.' }
+        format.html { redirect_to toppings_path, notice: "#{@topping.name.capitalize} was successfully created." }
         format.json { render :show, status: :created, location: @topping  }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ToppingsController < ApplicationController
   def update
     respond_to do |format|
       if @topping.update(topping_params)
-        format.html { redirect_to toppings_path, notice: 'Topping was successfully updated.' }
+        format.html { redirect_to toppings_path, notice: "#{@topping.name.capitalize} was successfully updated." }
         format.json { render :show, status: :ok, location: @topping }
       else
         format.html { render :edit }
@@ -56,15 +56,15 @@ class ToppingsController < ApplicationController
   def destroy
     @topping.destroy
     respond_to do |format|
-      format.html { redirect_to toppings_url, notice: 'Topping was successfully destroyed.' }
+      format.html { redirect_to toppings_url, notice: "#{@topping.name.capitalize} was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   def unavailable
-    Topping.find(params[:id]).update(available: false)
+    @topping.update(available: false)
     respond_to do |format|
-      format.html { redirect_to toppings_url, notice: 'Topping has been marked not available.' }
+      format.html { redirect_to toppings_url, notice: "Topping has been marked not available." }
       format.json { head :no_content }
     end
   end
@@ -72,7 +72,7 @@ class ToppingsController < ApplicationController
   def available
     Topping.find(params[:id]).update(available: true)
     respond_to do |format|
-      format.html { redirect_to toppings_url, notice: 'Topping has been marked available.' }
+      format.html { redirect_to toppings_url, notice: "Topping has been marked available." }
       format.json { head :no_content }
     end
   end

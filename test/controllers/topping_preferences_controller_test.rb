@@ -17,7 +17,7 @@ class PreferencesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create preference" do
     assert_difference('Preference.count') do
-      post preferences_url, params: { preference: { inedible: @preference.inedible, rating: @preference.rating, topping_id: @preference.topping_id, user_id: @preference.user_id } }
+      post preferences_url, params: { preference: { rating: @preference.rating, topping_id: @preference.topping_id, user_id: @preference.user_id } }
     end
 
     assert_redirected_to preference_url(Preference.last)
@@ -34,7 +34,7 @@ class PreferencesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update preference" do
-    patch preference_url(@preference), params: { preference: { inedible: @preference.inedible, rating: @preference.rating, topping_id: @preference.topping_id, user_id: @preference.user_id } }
+    patch preference_url(@preference), params: { preference: { rating: @preference.rating, topping_id: @preference.topping_id, user_id: @preference.user_id } }
     assert_redirected_to preference_url(@preference)
   end
 

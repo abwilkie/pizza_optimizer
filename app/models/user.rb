@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-	has_many :preferences, dependent: :destroy
+	has_many :topping_preferences, dependent: :destroy
 end

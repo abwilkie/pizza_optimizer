@@ -1,10 +1,11 @@
-<%= form_with(model: preference, local: true) do |form| %>
-  <% if preference.errors.any? %>
+<%= form_with(model: topping_preference, local: true) do |form| %>
+  <% binding.pry %>
+  <% if topping_preference.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(preference.errors.count, "error") %> prohibited this preference from being saved:</h2>
+      <h2><%= pluralize(topping_preference.errors.count, "error") %> prohibited this preference from being saved:</h2>
 
       <ul>
-      <% preference.errors.full_messages.each do |message| %>
+      <% topping_preference.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -19,11 +20,6 @@
   <div class="field">
     <%= form.label :topping_id %>
     <%= form.number_field :topping_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inedible %>
-    <%= form.check_box :inedible %>
   </div>
 
   <div class="field">

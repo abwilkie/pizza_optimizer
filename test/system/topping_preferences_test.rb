@@ -14,7 +14,6 @@ class PreferencesTest < ApplicationSystemTestCase
     visit preferences_url
     click_on "New Preference"
 
-    fill_in "Inedible", with: @preference.inedible
     fill_in "Rating", with: @preference.rating
     fill_in "Topping", with: @preference.topping_id
     fill_in "User", with: @preference.user_id
@@ -28,7 +27,6 @@ class PreferencesTest < ApplicationSystemTestCase
     visit preferences_url
     click_on "Edit", match: :first
 
-    fill_in "Inedible", with: @preference.inedible
     fill_in "Rating", with: @preference.rating
     fill_in "Topping", with: @preference.topping_id
     fill_in "User", with: @preference.user_id

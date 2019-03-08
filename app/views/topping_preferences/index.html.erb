@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Topping Preferences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Topping</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @topping_preferences.each do |topping_preference| %>
+      <tr>
+        <td><%= topping_preference.user_id %></td>
+        <td><%= topping_preference.topping_id %></td>
+        <td><%= topping_preference.rating %></td>
+        <td><%= link_to 'Edit', edit_topping_preference_path(topping_preference) %></td>
+        <td><%= button_to 'Delete', topping_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Topping Preference', new_topping_preference_path %>
+<p>
+<%= link_to 'See Toppings', toppings_path %>
+<br>
+<%= link_to 'See People', users_path %>
+</p>

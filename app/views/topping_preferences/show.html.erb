@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @topping_preference.user_id %>
+</p>
+
+<p>
+  <strong>Topping:</strong>
+  <%= @topping_preference.topping_id %>
+</p>
+
+
+<p>
+  <strong>Rating:</strong>
+  <%= @topping_preference.rating %>
+</p>
+
+<%= link_to 'Edit', edit_topping_preference_path(@topping_preference) %> |
+<%= link_to 'Back', topping_preferences_path %>

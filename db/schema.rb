@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_162523) do
+ActiveRecord::Schema.define(version: 2019_03_08_160225) do
 
-  create_table "preferences", force: :cascade do |t|
+  create_table "topping_preferences", force: :cascade do |t|
     t.integer "user_id"
     t.integer "topping_id"
-    t.boolean "inedible"
-    t.integer "rating"
+    t.string "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
